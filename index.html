@@ -23,8 +23,9 @@
 	  <div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">“梦之队”们凭借着自身的强势，成为各自项目的霸主对该项目进行着不同时间段的“统治”，也就是实现了对一些奥运项目的垄断。然而奥运中的这些垄断现象并不仅仅与体育运动项目本身相关，本文将通过历届奥运会单项和总成绩的数据来对奥运会的被垄断程度以及相关影响因素进行定性和定量分析，从而探究奥运垄断背后的意义。</div>
 
 		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-	 
-			<div id="myTabs">
+
+		<div id="myTabs">
+
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">一、“梦之队”的奥运“统治”</a></li>
@@ -37,7 +38,7 @@
 				<div role="tabpanel" class="tab-pane active" id="home" style="padding-bottom: 15px;border-bottom: 2px solid gray;">
 					<div style="text-align:left;line-height:50px;width:100%;font-size:24px;">一、“梦之队”的奥运“统治”</div>
 
-					<div style="text-align:left;line-height:50px;width:100%;font-size:22px;">1、“梦之队”的“统治”程度</div>
+				<div style="text-align:left;line-height:50px;width:100%;font-size:22px;">1、“梦之队”的“统治”程度</div>
 					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">量化一个国家对某个项目的“统治”程度，可以从金牌数占比和累计贡献率两种算法考虑。金牌数占比即为某一个国家所获得的总计金牌数量占该项目所产生的所有金牌数的比重，另一方面累计贡献率是基于金银铜牌的不同分量，将该国获得的所有金银铜牌分别赋值4、2、1分，金银铜牌数分别乘以所对应的分值，再相加得出一个国家的总得分，再与该项目所产生奖牌数的总分数做比，即累计贡献率＝（该国所获金牌数＊4＋该国所获银牌数＊2+该国所获铜牌数＊1）／（金牌总数＊4+银牌总数＊2+铜牌总数＊1）。（备注：此处累计贡献率算法对金银铜牌分别赋值4、2、1分参考了《沈阳体育学院学报》2004年4月，第23卷02期的《我国与奥运强国竞技体育实力的比较研究》。）</div>
 
 				
@@ -111,7 +112,8 @@
 										<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">如图9所示，定量分析国家获奖情况与可能性大小，可见国家所获金银铜牌数以及算出的总得分均与可能性呈负相关，并且这四个自变量与可能性的关系均落在一次函数模型的附近。这也就表明一个国家奥运成绩越好的可能性就越低，奥运成绩好的国家数量也少，也就是说往往强国拿到的奖牌多，弱国获得奖牌少，这样说明了奥运会奖牌资源的分布具有很强的异质性或不平等性。</div>
 
 
-					</div>
+				
+				</div>
 				<div role="tabpanel" class="tab-pane" id="profile" style="padding-bottom: 15px;border-bottom: 2px solid gray;">
 					<div style="text-align:left;line-height:50px;width:100%;font-size:24px;">二、奥运被垄断相关因素分析</div>
 
@@ -143,7 +145,7 @@
 					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">对该模型的评估，算出R平方为0.614，即有61.4％的y（总分）能被该模型的预测变量所解释，依据上文提到的r平方的参考标准，该模型拟合度较好。两个自变量的系数（coef）分别为1.1233和0.7616，显示因变量和自变量呈正相关，得分y随着人口和人均GDP的增长而增长。再者看该模型的p值，p值指的是当原假设为真的时候样本观察结果出现极端结果的概率，t值等于系数除以标准误,t值和p>|t|均是看回归结果是否显著,p>|t|越小越显著,表明回归效果越好，此处p值对应0，表明回归结果显著，符合原假设模型。结合以上几点衡量，该模型合适。</div>
 
 
-				</div>
+					</div>
 				<div role="tabpanel" class="tab-pane" id="messages" style="padding-bottom: 15px;border-bottom: 2px solid gray;">
 					<div style="text-align:left;line-height:50px;width:100%;font-size:24px;">三、结论</div>
 
@@ -161,6 +163,16 @@
 
 										
 
+						</div>
+								</div>
+
+							</div>
+							<script>
+										$('#myTabs a').click(function (e) {
+											e.preventDefault()
+											$(this).tab('show')
+										})
+							</script>
 		<div style="text-align:right;line-height:25px;width:100%;margin:10px 0;font-size:16px;">数据来源：</div>
 		<div style="text-align:right;line-height:25px;width:100%;margin:10px 0;font-size:16px;">奥林匹克官网：https://www.olympic.org</div>
 		<div style="text-align:right;line-height:25px;width:100%;margin:10px 0;font-size:16px;">Kaggle网：https://www.kaggle.com</div>
