@@ -145,7 +145,7 @@
 					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">对该模型的评估，算出R平方为0.614，即有61.4％的y（总分）能被该模型的预测变量所解释，依据上文提到的r平方的参考标准，该模型拟合度较好。两个自变量的系数（coef）分别为1.1233和0.7616，显示因变量和自变量呈正相关，得分y随着人口和人均GDP的增长而增长。再者看该模型的p值，p值指的是当原假设为真的时候样本观察结果出现极端结果的概率，t值等于系数除以标准误,t值和p>|t|均是看回归结果是否显著,p>|t|越小越显著,表明回归效果越好，此处p值对应0，表明回归结果显著，符合原假设模型。结合以上几点衡量，该模型合适。</div>
 
 
-					</div>
+						</div>
 				<div role="tabpanel" class="tab-pane" id="messages" style="padding-bottom: 15px;border-bottom: 2px solid gray;">
 					<div style="text-align:left;line-height:50px;width:100%;font-size:24px;">三、结论</div>
 
@@ -161,17 +161,180 @@
 										<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
 										<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
 
-										
+										<!--scatter-->
+										<div id="scatter" style="width: 1000px;height:400px;"></div>
 
-						
+										<script type="text/javascript">
+											// 基于准备好的dom，初始化echarts实例
+											var myChart = echarts.init(document.getElementById('scatter'));
 
-							
+											// 指定图表的配置项和数据
+
+											var latlong = {};
+											latlong.AU = { 'latitude': -30, 'longitude': 140 };
+											latlong.AU2 = { 'latitude': -28, 'longitude': 135 };
+											latlong.BE = { 'latitude': 50.8333, 'longitude': 4 };
+											latlong.BR = { 'latitude': -10, 'longitude': -55 };
+											latlong.CA = { 'latitude': 54, 'longitude': -100 };
+											latlong.CN = { 'latitude': 35, 'longitude': 105 };
+											latlong.DE = { 'latitude': 51, 'longitude': 9 };
+											latlong.DE2 = { 'latitude': 51, 'longitude': 10 };
+											latlong.ES = { 'latitude': 40, 'longitude': -4 };
+											latlong.FI = { 'latitude': 62, 'longitude': 26 };
+											latlong.FR = { 'latitude': 46, 'longitude': 2 };
+											latlong.FR2 = { 'latitude': 46, 'longitude': 3 };
+											latlong.GB = { 'latitude': 54, 'longitude': -2 };
+											latlong.GB2 = { 'latitude': 54, 'longitude': -3 };
+											latlong.GB3 = { 'latitude': 55, 'longitude': -2 };
+											latlong.GR = { 'latitude': 39, 'longitude': 22 };
+											latlong.GR2 = { 'latitude': 39, 'longitude': 24 };
+											latlong.IT = { 'latitude': 42.8333, 'longitude': 12.8333 };
+											latlong.JP = { 'latitude': 36, 'longitude': 138 };
+											latlong.KR = { 'latitude': 37, 'longitude': 127.5 };
+											latlong.MX = { 'latitude': 23, 'longitude': -102 };
+											latlong.NL = { 'latitude': 52.5, 'longitude': 5.75 };
+											latlong.RU = { 'latitude': 60, 'longitude': 100 };
+											latlong.SE = { 'latitude': 62, 'longitude': 15 };
+											latlong.US = { 'latitude': 38, 'longitude': -90 };
+											latlong.US2 = { 'latitude': 38, 'longitude': -110 };
+											latlong.US3 = { 'latitude': 38, 'longitude': -110 };
+											latlong.US4 = { 'latitude': 34, 'longitude': -88 };
+
+
+											var mapData = [
+												{ 'code': 'AU', 'name': '1956年澳大利亚墨尔本', 'value': 16, 'color': '#8aabb0' },
+												{ 'code': 'AU2', 'name': '2000年澳大利亚悉尼', 'value': 27, 'color': '#8aabb0' },
+												{ 'code': 'BE', 'name': '1920年比利时安特卫普', 'value': 7, 'color': '#d8854f' },
+												{ 'code': 'BR', 'name': '2016年巴西里约热内卢', 'value': 31, 'color': '#86a965' },
+												{ 'code': 'CA', 'name': '1976年加拿大蒙特利尔', 'value': 21, 'color': '#a7a737' },
+												{ 'code': 'CN', 'name': '2008年中国北京', 'value': 29, 'color': '#eea638' },
+												{ 'code': 'FI', 'name': '1952年芬兰赫尔辛基', 'value': 15, 'color': '#d8854f' },
+												{ 'code': 'FR', 'name': '1900年法国巴黎', 'value': 2, 'color': '#d8854f' },
+												{ 'code': 'FR2', 'name': '1924年法国巴黎', 'value': 8, 'color': '#d8854f' },
+												{ 'code': 'DE', 'name': '1916年德国柏林', 'value': 11, 'color': '#d8854f' },
+												{ 'code': 'DE2', 'name': '1972年德国慕尼黑', 'value': 20, 'color': '#d8854f' },
+												{ 'code': 'GR', 'name': '1896年希腊雅典', 'value': 1, 'color': '#d8854f' },
+												{ 'code': 'GR2', 'name': '2004年希腊雅典', 'value': 28, 'color': '#d8854f' },
+												{ 'code': 'IT', 'name': '1960年意大利罗马', 'value': 17, 'color': '#d8854f' },
+												{ 'code': 'JP', 'name': '1964年日本东京', 'value': 18, 'color': '#eea638' },
+												{ 'code': 'KR', 'name': '1988年韩国汉城', 'value': 24, 'color': '#eea638' },
+												{ 'code': 'MX', 'name': '1968年墨西哥墨西哥城', 'value': 19, 'color': '#a7a737' },
+												{ 'code': 'NL', 'name': '1928年荷兰阿姆斯特丹', 'value': 9, 'color': '#d8854f' },
+												{ 'code': 'RU', 'name': '1980年苏联莫斯科', 'value': 22, 'color': '#d8854f' },
+												{ 'code': 'ES', 'name': '1992年西班牙巴塞罗那', 'value': 25, 'color': '#d8854f' },
+												{ 'code': 'SE', 'name': '1912年瑞典斯德歌尔摩', 'value': 5, 'color': '#d8854f' },
+												{ 'code': 'GB', 'name': '1908年英国伦敦', 'value': 4, 'color': '#d8854f' },
+												{ 'code': 'GB2', 'name': '1948年英国伦敦', 'value': 14, 'color': '#d8854f' },
+												{ 'code': 'GB3', 'name': '2012年英国伦敦', 'value': 30, 'color': '#d8854f' },
+												{ 'code': 'US', 'name': '1904年美国圣路易斯', 'value': 3, 'color': '#a7a737' },
+												{ 'code': 'US2', 'name': '1932年美国洛杉矶', 'value': 10, 'color': '#a7a737' },
+												{ 'code': 'US3', 'name': '1984年美国洛杉矶', 'value': 23, 'color': '#a7a737' },
+												{ 'code': 'US4', 'name': '1996年美国亚特兰大', 'value': 26, 'color': '#a7a737' }];
+
+											var max = -Infinity;
+											var min = Infinity;
+											mapData.forEach(function (itemOpt) {
+												if (itemOpt.value > max) {
+													max = itemOpt.value;
+												}
+												if (itemOpt.value < min) {
+													min = itemOpt.value;
+												}
+											});
+
+											option = {
+												backgroundColor: '#404a59',
+												title: {
+													text: '历届奥运会举办国家',
+													left: 'center',
+													top: 'top',
+													textStyle: {
+														color: '#fff'
+													}
+												},
+												tooltip: {
+													trigger: 'item',
+													confine:true,
+													extraCssText:'width:220px!important;',
+													formatter: function (params) {
+														var value = (params.value + '').split('届奥运会');
+														value = value[0].replace('$1,')
+															+ '届奥运会';
+														return params.seriesName + '<br/>' + params.name + ' : ' + '<br/>' + value;
+													}
+												},
+												visualMap: {
+													show: false,
+													min: 0,
+													max: max,
+													inRange: {
+														symbolSize: [10, 10]
+													}
+												},
+												geo: {
+													name: '历届奥运会举办国家',
+													type: 'map',
+													map: 'world',
+													roam: false,
+													label: {
+														emphasis: {
+															show: false
+														}
+													},
+													itemStyle: {
+														normal: {
+															areaColor: '#323c48',
+															borderColor: '#111'
+														},
+														emphasis: {
+															areaColor: '#2a333d'
+														}
+													}
+												},
+												series: [
+													{
+														type: 'scatter',
+														coordinateSystem: 'geo',
+														data: mapData.map(function (itemOpt) {
+															return {
+																name: itemOpt.name,
+																value: [
+																	latlong[itemOpt.code].longitude,
+																	latlong[itemOpt.code].latitude,
+																	'第',
+																	itemOpt.value,
+																],
+																label: {
+																	emphasis: {
+																		position: 'right',
+																		show: false
+																	}
+																},
+																itemStyle: {
+																	normal: {
+																		color: itemOpt.color
+																	}
+																}
+															};
+														})
+													}
+												]
+											};
+
+											// 使用刚指定的配置项和数据显示图表。
+											myChart.setOption(option);
+										</script>
+									</div>
+								</div>
+
+							</div>
 							<script>
 										$('#myTabs a').click(function (e) {
 											e.preventDefault()
 											$(this).tab('show')
 										})
 							</script>
+
 		<div style="text-align:right;line-height:25px;width:100%;margin:10px 0;font-size:16px;">数据来源：</div>
 		<div style="text-align:right;line-height:25px;width:100%;margin:10px 0;font-size:16px;">奥林匹克官网：https://www.olympic.org</div>
 		<div style="text-align:right;line-height:25px;width:100%;margin:10px 0;font-size:16px;">Kaggle网：https://www.kaggle.com</div>
@@ -185,4 +348,3 @@
 </body>
 
 </html>
-
